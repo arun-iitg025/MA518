@@ -10,7 +10,7 @@ const FileUpload = ({ contract, account, provider }) => {
             try{
 
             }catch(e){
-                alert("Unable to upload to Pinata");
+                alert("Unable to upload Image to Pinata");
             }
         }
     }
