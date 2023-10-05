@@ -25,7 +25,7 @@ const FileUpload = ({ contract, account, provider }) => {
                 // Image upload hone ke baad mujhe use image ka ek hash milega jiske through hum access kar sakte hai
                 const ImgHash = `ipfs://${resFile.data.IpfsHash}`;
                 // const signer = contract.connect(provider.getSigner());
-                await contract.add(account,ImgHash);      // Image ke hash ko blockchaim mai store kar rahe hai
+                contract.add(account,ImgHash);      // Image ke hash ko blockchaim mai store kar rahe hai
                 alert("Successfully Image Uploaded");
                 setFileName("No Image Selected");
                 setFile(null);
