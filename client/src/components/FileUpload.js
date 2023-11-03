@@ -16,8 +16,8 @@ const FileUpload = ({ contract, account, provider }) => {
                     url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
                     data: formData,     // jo bhi data ko upload karenge wo pinta mai upload ho jayega pinata as a service
                     headers: {
-                        pinata_api_key: `852e216f793121148c5d`,
-                        pinata_secret_api_key: `752b4b58d7fd0307927c0ef838edbe120445f649dc835c83f3bd40fc21199eb5`,
+                        pinata_api_key: `602c2c09730b00e858c4`,
+                        pinata_secret_api_key: `a0f4111ff8b41edf570073458ef36b1819909109ddaf477a30d849124d3e2973`,
                         "Content-Type":"multipart/form-data",
                     },
                 });
@@ -38,7 +38,7 @@ const FileUpload = ({ contract, account, provider }) => {
     //ye Images ke data ko fetch karne mei help karegi
     const retrieveFile=(e)=>{
         const data = e.target.files[0]; // files array of files object
-        console.log(data);
+       // console.log(data);
         const reader = new window.FileReader();
         reader.readAsArrayBuffer(data);
         reader.onloadend = () => {
@@ -60,7 +60,7 @@ const FileUpload = ({ contract, account, provider }) => {
             onChange={retrieveFile}              
             />
             <span className="textArea">Image:{fileName} </span>
-            <button type="submit" className="upload">
+            <button type="submit" className="upload" disabled={!file}>
             Upload File
             </button>
         </form>

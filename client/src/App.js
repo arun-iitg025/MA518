@@ -12,6 +12,7 @@ function App() {
   const [provider, setProvider] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
+    // yahan pe humlog ne contract ka instance create kiye;
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum); // provider blockchain se data ko read karne ke liye use karte hai
     
@@ -39,7 +40,7 @@ function App() {
           Upload.abi, 
           signer
         );
-        console.log(contract);
+       // console.log(contract);
         setContract(contract);
         setProvider(provider);
       }
@@ -50,8 +51,11 @@ function App() {
     provider && loadProvider();
   },[]);
   return (
+    <>
+    {!modalOpen && (<button className="share" onClick={()=>setModalOpen(true)}>Share</button>)}{""}
+    {modalOpen && ( <Modal setModalOpen={setModalOpen} contract={contract}></Modal> )}
     <div className="App">
-    <h1>Decentralized File System</h1>
+    <h1>Decentralize File System</h1>
     <div className="bg"></div>
     <div className="bg bg2"></div>
     <div className="bg bg3"></div>
@@ -62,8 +66,10 @@ function App() {
       account={account}
       provider={provider}
       contract={contract} 
-    />
+    ></FileUpload>
+    <Display contract={contract} account={account}></Display>
     </div>
+    </>
   );
 }
 
