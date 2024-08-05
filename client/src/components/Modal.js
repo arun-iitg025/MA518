@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import "./Modal.css";
 const Modal = ({setModalOpen, contract}) => {
     const sharing = async() =>{
@@ -22,7 +22,7 @@ const Modal = ({setModalOpen, contract}) => {
             }
         };
         contract && accessList();
-    },[]);       //[] ye dependency list hai;
+    },[contract]);       //[] ye dependency list hai;
     return <>
         <div className="modalBackground">
             <div className="modalContainer">
