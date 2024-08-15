@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import "./Display.css";
+
 const Display = ({contract, account}) => {
     const [data, setData] = useState("");
 
@@ -7,7 +8,7 @@ const Display = ({contract, account}) => {
         let dataArray;
         const Otheraddress = document.querySelector(".address").value;
         try{
-            
+            // if(!ethereum) return alert("Install Metamask!");
             if(Otheraddress){
                 dataArray = await contract.display(Otheraddress);
                 console.log(dataArray);

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+
 import "./FileUpload.css";
 const FileUpload = ({ contract, account, provider }) => {
     const [file, setFile]=useState(null);
@@ -8,6 +9,7 @@ const FileUpload = ({ contract, account, provider }) => {
         e.preventDefault();
         if(file){
             try{
+               
                 const formData = new FormData();
                 formData.append("file", file);
 

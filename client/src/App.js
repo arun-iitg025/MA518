@@ -5,7 +5,8 @@ import FileUpload from "./components/FileUpload";
 import Display from "./components/Display";
 import Modal from "./components/Modal";
 import './App.css';
-
+// const {ethereum} = window;
+// if(!ethereum) alert("Install Metamask!");
 function App() {
   const [account, setAccount] = useState("");
   const [contract, setContract] = useState(null);
@@ -14,7 +15,7 @@ function App() {
 
     // yahan pe humlog ne contract ka instance create kiye;
   useEffect(() => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum); // provider blockchain se data ko read karne ke liye use karte hai
+    const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider()); // provider blockchain se data ko read karne ke liye use karte hai
     
     const loadProvider = async() => {
       if(provider){
@@ -45,9 +46,11 @@ function App() {
         setProvider(provider);
       }
       else{
+        alert("Install Metamask!");
         console.error("MetaMask is not installed");
       }
     };
+    if(window.ethereum)
     provider && loadProvider();
   },[]);
   return (
