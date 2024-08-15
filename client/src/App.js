@@ -63,7 +63,7 @@ function App() {
     <div className="bg bg2"></div>
     <div className="bg bg3"></div>
     
-    <p style={{color: "red"}}>Account : {account ? account: "Connect to Wallet"}</p>
+    <p style={{color: "red"}}>Account : {account ? account: <a className="metamask" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" target="_blank" > Install MetaMask</a>}</p>
 
     <FileUpload 
       account={account}
